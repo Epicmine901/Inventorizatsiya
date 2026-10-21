@@ -1,0 +1,9 @@
+fastapi
+psutil
+requests
+uvicorn
+WMI
+pywebview
+pyinstaller
+psycopg[binary]
+rich

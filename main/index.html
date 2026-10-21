@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>Инвентаризация</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #101827;
+      color: #e8edf5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(ellipse at 15% 10%, #173b55 0, transparent 42%),
+        radial-gradient(ellipse at 90% 90%, #292354 0, transparent 38%),
+        #101827;
+    }
+
+    main {
+      width: min(100%, 620px);
+      padding: clamp(28px, 7vw, 54px);
+      border: 1px solid #ffffff1c;
+      border-radius: 24px;
+      background: #172233eF;
+      box-shadow: 0 24px 80px #0005;
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: #38bdf21c;
+      color: #7dd3fc;
+      font-size: 30px;
+    }
+
+    h1 { margin: 24px 0 10px; font-size: clamp(30px, 6vw, 42px); }
+    p { color: #aebbd0; line-height: 1.65; }
+
+    .badge {
+      display: inline-block;
+      margin: 14px 0 26px;
+      padding: 7px 12px;
+      border: 1px solid #ffffff24;
+      border-radius: 999px;
+      color: #cbd5e1;
+      font-size: 13px;
+    }
+
+    .badge.trusted {
+      border-color: #34d39955;
+      background: #34d39912;
+      color: #6ee7b7;
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border: 1px solid #ffffff25;
+      border-radius: 11px;
+      color: #e8edf5;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .15s ease, filter .15s ease;
+    }
+
+    .button:hover { transform: translateY(-1px); filter: brightness(1.12); }
+    .button.primary { border-color: #0284c7; background: #0284c7; }
+    .button.danger { border-color: #be123c; background: #be123c; }
+
+    footer { margin-top: 34px; color: #8290a5; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="icon" aria-hidden="true">▦</div>
+    <h1>Инвентаризация</h1>
+    <p>Сервер работает. Здесь можно скачать приложение для учёта инвентаря.</p>
+    {{ACCESS_BADGE}}
+    <div class="actions">
+      <a class="button primary" href="/download">Скачать приложение для Windows</a>
+      {{STOP_BUTTON}}
+    </div>
+    <footer>Скачивание начнётся сразу после нажатия кнопки.</footer>
+  </main>
+</body>
+</html>

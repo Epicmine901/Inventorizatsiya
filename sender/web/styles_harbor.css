@@ -1,0 +1,219 @@
+@import url("styles.css");
+
+:root[data-theme="harbor"] {
+  color-scheme: light;
+  --ink: #183645;
+  --muted: #57727f;
+  --line: #b9cbd3;
+  --paper: #dce8ee;
+  --surface: #f4f8fa;
+  --teal: #087f8c;
+  --teal-dark: #123448;
+  --orange: #dc9a48;
+  --lime: #a7dfd2;
+  --good: #07875e;
+  --bad: #bd4551;
+  background: var(--paper);
+}
+
+:root[data-theme="harbor"] body {
+  background:
+    radial-gradient(ellipse at 20% -8%, #ffffff 0, transparent 31rem),
+    linear-gradient(145deg, #dce8ee, #eaf1f3 50%, #cbdde4);
+  animation: harbor-arrive .65s ease both;
+}
+
+:root[data-theme="harbor"] .topbar {
+  border-bottom: 0;
+  background: #123448;
+  box-shadow: 0 9px 26px #12344830;
+}
+
+:root[data-theme="harbor"] .brand-mark {
+  border: 1px solid #ffffff33;
+  border-radius: 50%;
+  background: #087f8c;
+}
+
+:root[data-theme="harbor"] .brand-box-top { fill: #b5f1e1; }
+:root[data-theme="harbor"] .brand-box-left { fill: #41b9b3; }
+:root[data-theme="harbor"] .brand-box-right { fill: #087f8c; }
+:root[data-theme="harbor"] .brand-box-check {
+  fill: none;
+  stroke: #ffcf83;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+}
+
+:root[data-theme="harbor"] .theme-switcher {
+  color: #d5e7ed;
+}
+
+:root[data-theme="harbor"] .theme-option[aria-pressed="true"] {
+  border-color: #a7dfd2;
+  background: #a7dfd2;
+  color: #123448;
+}
+
+:root[data-theme="harbor"] .page {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+  align-items: start;
+  gap: 0 20px;
+  width: min(1240px, 100%);
+  padding-top: 31px;
+}
+
+:root[data-theme="harbor"] .intro {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: stretch;
+  display: flex;
+  min-height: 208px;
+  flex-direction: column;
+  justify-content: center;
+  margin: 18px 0;
+  padding: 26px;
+  border: 1px solid #b9cbd3;
+  border-radius: 21px;
+  background:
+    linear-gradient(135deg, #123448 0%, #1d6170 65%, #087f8c 100%);
+  box-shadow: 0 18px 38px #12344822;
+}
+
+:root[data-theme="harbor"] .intro h1 {
+  max-width: 500px;
+  color: #ffffff;
+  font-size: clamp(30px, 3.6vw, 43px);
+}
+
+:root[data-theme="harbor"] .intro .subtitle {
+  color: #c7e0e6;
+}
+
+:root[data-theme="harbor"] .eyebrow {
+  color: #ffcf83;
+}
+
+:root[data-theme="harbor"] .eyebrow::before {
+  background: #ffcf83;
+}
+
+:root[data-theme="harbor"] .section-card {
+  border-color: #b9cbd3;
+  border-radius: 15px;
+  background: #f4f8fa;
+  box-shadow: 0 10px 25px #1234480d;
+}
+
+:root[data-theme="harbor"] .section-card:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+:root[data-theme="harbor"] .section-card:nth-of-type(3) {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
+
+:root[data-theme="harbor"] .section-card:nth-of-type(4) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+:root[data-theme="harbor"] .metadata-fields {
+  grid-template-columns: 1fr;
+}
+
+:root[data-theme="harbor"] .field input,
+:root[data-theme="harbor"] .field textarea,
+:root[data-theme="harbor"] .server-control input {
+  border-color: #b9cbd3;
+  background: #ffffff;
+  color: #183645;
+}
+
+:root[data-theme="harbor"] .hardware-card {
+  border-color: #c6d7dd;
+  border-radius: 13px;
+  background: #ffffff;
+}
+
+:root[data-theme="harbor"] .hardware-card[open],
+:root[data-theme="harbor"] .hardware-card:hover {
+  border-color: #55aaa8;
+  box-shadow: 0 8px 20px #087f8c1b;
+}
+
+:root[data-theme="harbor"] .hardware-icon {
+  border-radius: 50%;
+  background: #d9eeeb;
+  color: #087f8c;
+}
+
+:root[data-theme="harbor"] .hardware-details {
+  border-color: #9bbdc5;
+  border-radius: 13px;
+  background: #f7fbfc;
+}
+
+:root[data-theme="harbor"] .detail-device-title {
+  color: #087f8c;
+}
+
+:root[data-theme="harbor"] .empty {
+  border-color: #92b6c0;
+  border-radius: 13px;
+}
+
+:root[data-theme="harbor"] .result {
+  grid-column: 1 / -1;
+  border-color: #b9cbd3;
+  border-radius: 12px;
+  background: #f4f8fa;
+}
+
+:root[data-theme="harbor"] footer {
+  grid-column: 1 / -1;
+}
+
+:root[data-theme="harbor"] .section-card:nth-of-type(2),
+:root[data-theme="harbor"] .section-card:nth-of-type(4) {
+  animation: harbor-float-in .55s ease both;
+}
+
+@keyframes harbor-arrive {
+  from { opacity: .3; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes harbor-float-in {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 820px) {
+  :root[data-theme="harbor"] .page {
+    display: block;
+    padding-top: 24px;
+  }
+
+  :root[data-theme="harbor"] .intro {
+    min-height: 0;
+  }
+
+  :root[data-theme="harbor"] .section-card:nth-of-type(n) {
+    display: block;
+  }
+
+  :root[data-theme="harbor"] .metadata-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  :root[data-theme="harbor"] .metadata-fields {
+    grid-template-columns: 1fr;
+  }
+}

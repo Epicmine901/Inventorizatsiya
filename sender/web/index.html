@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Инвентаризация оборудования</title>
+  <link id="theme-stylesheet" rel="stylesheet" href="styles_neon.css">
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-network" viewBox="0 0 32 32"><path d="M4 8h22v16H4zM26 12h3v8h-3M7 24v3m4-3v3m4-3v3m4-3v3"/><rect x="8" y="11" width="9" height="9" rx="1"/><path d="M21 13h2m-2 3h2m-2 3h2"/></symbol>
+    <symbol id="icon-board" viewBox="0 0 32 32"><path d="M5 3h18l6 6v17l-3 3H5l-2-2V6z"/><rect x="10" y="8" width="10" height="10" rx="1.5"/><path d="M13 11h4v4h-4zM6 8h2v5h-2m17-4h3v2h-3m-14 9v4h3m9-4v4h-3M8 25h5m3 0h8"/></symbol>
+    <symbol id="icon-ram" viewBox="0 0 32 32"><path d="M3 8h26v15H3z"/><rect x="6" y="11" width="4" height="7" rx=".5"/><rect x="13" y="11" width="4" height="7" rx=".5"/><rect x="20" y="11" width="4" height="7" rx=".5"/><path d="M5 23v3m4-3v3m5-3v3m5-3v3m5-3v3m4-3v3"/></symbol>
+    <symbol id="icon-storage" viewBox="0 0 32 32"><path d="M4 8h22a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H4l-2-2V10z"/><circle cx="25" cy="16" r="1.5"/><rect x="7" y="11" width="5" height="7" rx="1"/><rect x="15" y="11" width="5" height="7" rx="1"/><path d="M5 25v2m4-2v2m4-2v2m4-2v2m4-2v2"/></symbol>
+    <symbol id="icon-cpu" viewBox="0 0 32 32"><rect x="7" y="7" width="18" height="18" rx="2"/><rect x="11" y="11" width="10" height="10" rx="1"/><path d="M13 1v6m6-6v6m-6 18v6m6-6v6M1 13h6m-6 6h6m18-6h6m-6 6h6"/></symbol>
+    <symbol id="icon-gpu" viewBox="0 0 32 32"><path d="M3 7h23v18H3zM26 11h4v10h-4M6 25v3m17-3v3"/><circle cx="10" cy="16" r="5"/><circle cx="20" cy="16" r="5"/></symbol>
+    <symbol id="icon-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></symbol>
+    <symbol id="icon-os" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5m8-5v5m-9 5h3m3 0h3m-9 3h3"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="icon-keyboard" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01m3 0h.01m3 0h.01m3 0h.01m3 0h.01M6 13h.01m3 0h.01m3 0h.01m3 0h.01m-9 3h9"/></symbol>
+    <symbol id="icon-mouse" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="6"/><path d="M12 2v7m-6 0h12"/></symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24"><path d="m12 3 10 18H2L12 3zM12 9v5m0 3h.01"/></symbol>
+  </svg>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" focusable="false">
+            <path class="brand-box-top" d="M20 3 37 12 20 21 3 12z"></path>
+            <path class="brand-box-left" d="M3 12 20 21v17L3 29z"></path>
+            <path class="brand-box-right" d="m37 12-17 9v17l17-9z"></path>
+            <path class="brand-box-check" d="m23 27 3 3 6-7"></path>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name">Учет оборудования</div>
+          <div class="brand-caption">INVENTORY CLIENT</div>
+        </div>
+      </div>
+      <nav class="theme-switcher" aria-label="Выбор дизайна">
+        <span class="theme-switcher-label">Дизайн</span>
+        <div class="theme-options" role="group" aria-label="Варианты оформления">
+          <button class="theme-option" type="button" data-theme-choice="ledger" aria-pressed="false">Ledger</button>
+          <button class="theme-option" type="button" data-theme-choice="neon" aria-pressed="true">Neon</button>
+          <button class="theme-option" type="button" data-theme-choice="harbor" aria-pressed="false">Harbor</button>
+        </div>
+      </nav>
+      <div class="header-tools">
+        <div class="connection" aria-live="polite">
+          <span class="dot" id="connection-dot"></span>
+          <span id="connection-label">Ожидание действий</span>
+        </div>
+        <form class="server-control" id="server-control">
+          <label for="server-input">Сервер</label>
+          <input id="server-input" type="text" inputmode="url" autocomplete="url" placeholder="IP или https://адрес" aria-label="IP-адрес или URL сервера">
+          <button class="icon-button" id="server-refresh" type="submit" aria-label="Проверить адрес сервера" title="Проверить адрес сервера">↻</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <div class="eyebrow">Сбор и передача</div>
+      <h1>Инвентаризация компьютера</h1>
+      <p class="subtitle">Сведения об устройстве соберутся автоматически. Проверьте оборудование, добавьте данные и отправьте запись на сервер.</p>
+    </section>
+
+    <section class="card section-card" aria-labelledby="contact-title">
+      <div class="section-heading">
+        <div>
+          <h2 class="section-title" id="contact-title">Данные устройства</h2>
+          <p class="section-hint">Эти поля можно оставить пустыми.</p>
+        </div>
+      </div>
+      <div class="metadata-fields">
+        <label class="field" for="fio-input">
+          <span class="field-label">ФИО <small>необязательно</small></span>
+          <input id="fio-input" name="fio" type="text" maxlength="160" autocomplete="name" placeholder="Введите ФИО">
+        </label>
+        <label class="field" for="location-input">
+          <span class="field-label">Местоположение <small>необязательно</small></span>
+          <input id="location-input" name="location" type="text" maxlength="200" autocomplete="organization" placeholder="Например, офис / кабинет">
+        </label>
+      </div>
+    </section>
+
+    <section class="card section-card" aria-labelledby="inventory-title">
+      <div class="section-heading">
+        <div>
+          <h2 class="section-title" id="inventory-title">Оборудование</h2>
+          <p class="section-hint">Нажмите на категорию, чтобы посмотреть собранные характеристики.</p>
+        </div>
+        <span class="panel-meta" id="item-count">нет данных</span>
+      </div>
+      <div class="inventory-grid" id="summary" aria-live="polite">
+        <div class="empty">Сбор информации начнется автоматически при запуске приложения.</div>
+      </div>
+      <div class="actions">
+        <button class="button" id="collect-button" type="button"><span class="button-icon" aria-hidden="true">↻</span>Обновить сведения</button>
+      </div>
+    </section>
+
+    <section class="card section-card" aria-labelledby="additional-title">
+      <div class="section-heading">
+        <div>
+          <h2 class="section-title" id="additional-title">Дополнительно</h2>
+          <p class="section-hint">Оставьте комментарий или добавьте сведения, которых нет в карточках оборудования.</p>
+        </div>
+      </div>
+      <label class="field" for="additional-input">
+        <span class="field-label">Примечание <small>необязательно</small></span>
+        <textarea id="additional-input" name="additional" maxlength="2000" rows="4" placeholder="Введите дополнительную информацию"></textarea>
+      </label>
+      <div class="actions">
+        <button class="button button-primary" id="send-button" type="button"><span class="button-icon" aria-hidden="true">↑</span>Отправить на сервер</button>
+      </div>
+    </section>
+
+    <div class="result" id="result" role="status">Ожидаю подключения к серверу</div>
+    <footer>Адреса серверов задаются при сборке приложения</footer>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

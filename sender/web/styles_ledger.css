@@ -1,0 +1,116 @@
+@import url("styles.css");
+
+:root[data-theme="ledger"] {
+  color-scheme: light;
+  --ink: #282923;
+  --muted: #77776d;
+  --line: #ded9cc;
+  --paper: #f3f0e8;
+  --surface: #fffdf8;
+  --teal: #c45e36;
+  --teal-dark: #282923;
+  --orange: #c45e36;
+  --lime: #e7b96a;
+  --good: #42745b;
+  --bad: #b94c43;
+  background: var(--paper);
+}
+
+:root[data-theme="ledger"] body {
+  background:
+    linear-gradient(90deg, rgba(40, 41, 35, .035) 1px, transparent 1px),
+    linear-gradient(rgba(40, 41, 35, .035) 1px, transparent 1px),
+    var(--paper);
+  background-size: 34px 34px;
+  animation: ledger-arrive .55s ease both;
+}
+
+:root[data-theme="ledger"] .topbar {
+  border-bottom: 0;
+  background: #282923;
+  box-shadow: 0 7px 24px #28292322;
+}
+
+:root[data-theme="ledger"] .brand-mark {
+  border-radius: 50%;
+  background: #e7b96a;
+}
+
+:root[data-theme="ledger"] .brand-box-top { fill: #fff0c7; }
+:root[data-theme="ledger"] .brand-box-left { fill: #d68a50; }
+:root[data-theme="ledger"] .brand-box-right { fill: #bd633e; }
+:root[data-theme="ledger"] .brand-box-check {
+  fill: none;
+  stroke: #fff0c7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+}
+
+:root[data-theme="ledger"] .theme-switcher {
+  color: #f4e9d5;
+}
+
+:root[data-theme="ledger"] .theme-option[aria-pressed="true"] {
+  border-color: #e7b96a;
+  background: #e7b96a;
+  color: #282923;
+}
+
+:root[data-theme="ledger"] .page {
+  width: min(1080px, 100%);
+  padding-top: 44px;
+}
+
+:root[data-theme="ledger"] .intro {
+  padding: 6px 0 20px 23px;
+  border-left: 3px solid #c45e36;
+}
+
+:root[data-theme="ledger"] h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: -.045em;
+}
+
+:root[data-theme="ledger"] .section-card {
+  border-color: #ded9cc;
+  border-radius: 5px;
+  box-shadow: 5px 5px 0 #2829230b;
+}
+
+:root[data-theme="ledger"] .hardware-card {
+  border-radius: 5px;
+}
+
+:root[data-theme="ledger"] .hardware-icon {
+  border-radius: 5px;
+  background: #f5e8d7;
+  color: #994324;
+}
+
+:root[data-theme="ledger"] .button {
+  border-radius: 5px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+:root[data-theme="ledger"] .button:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 #28292326;
+}
+
+:root[data-theme="ledger"] .result {
+  border-radius: 5px;
+  background: #fffdf8;
+}
+
+@keyframes ledger-arrive {
+  from { opacity: .35; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  :root[data-theme="ledger"] .topbar-inner {
+    flex-wrap: wrap;
+  }
+}

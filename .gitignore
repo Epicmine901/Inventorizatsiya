@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+inventory_access.json
+main/.inventory_access.json
+
+# Local databases and runtime files
+*.sqlite
+*.sqlite3
+*.db
+*.log
+
+# Generated certificates and private keys
+main/Sertifikat/
+*.key
+*.p12
+*.pfx
+
+# Build output
+build/
+dist/
+sender/build/
+sender/dist/
+sender/dist_build/
+*.spec
+*.exe
+
+# Temporary browser test pages
+.inventory-*.html
